@@ -1,13 +1,13 @@
 'use strict'
-const path = require('path')
-const utils = require('./utils')
-const webpack = require('webpack')
-const config = require('../config')
-const merge = require('webpack-merge')
-const baseWebpackConfig = require('./webpack.base.conf')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path                 = require('path')
+const utils                = require('./utils')
+const webpack              = require('webpack')
+const config               = require('../config')
+const merge                = require('webpack-merge')
+const baseWebpackConfig    = require('./webpack.base.conf')
+const HtmlWebpackPlugin    = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const portfinder = require('portfinder')
+const portfinder           = require('portfinder')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -25,20 +25,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
-    clientLogLevel: 'warning',
+    clientLogLevel    : 'warning',
     historyApiFallback: true,
-    hot: true,
-    compress: true,
-    host: HOST || config.dev.host,
-    port: PORT || config.dev.port,
-    open: config.dev.autoOpenBrowser,
-    overlay: config.dev.errorOverlay
+    hot               : true,
+    compress          : true,
+    host              : HOST || config.dev.host,
+    port              : PORT || config.dev.port,
+    open              : config.dev.autoOpenBrowser,
+    overlay           : config.dev.errorOverlay
       ? { warnings: false, errors: true }
-      : false,
-    publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
-    quiet: true, // necessary for FriendlyErrorsPlugin
-    watchOptions: {
+                  :  false,
+      publicPath  : config.dev.assetsPublicPath,
+      proxy       : config.dev.proxyTable,
+      quiet       : true,                          // necessary for FriendlyErrorsPlugin
+      watchOptions: {
       poll: config.dev.poll,
     }
   },
@@ -53,9 +53,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true,
-      favicon: resolve('favicon.ico'),
-      title: 'vue-element-admin'
+      inject  : true,
+      favicon : resolve('favicon.ico'),
+      title   : '个人中心'
     }),
   ]
 })
@@ -78,7 +78,7 @@ module.exports = new Promise((resolve, reject) => {
         },
         onErrors: config.dev.notifyOnErrors
         ? utils.createNotifierCallback()
-        : undefined
+        :  undefined
       }))
 
       resolve(devWebpackConfig)

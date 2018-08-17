@@ -26,10 +26,10 @@ export default {
   },
   methods: {
     getBreadcrumb() {
-      let matched = this.$route.matched.filter(item => item.name)
-      const first = matched[0]
+      let   matched = this.$route.matched.filter(item => item.name)
+      const first   = matched[0]
       if (first && first.name !== 'dashboard') {
-        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: '账户主页' }}].concat(matched)
       }
       this.levelList = matched
     }
@@ -39,12 +39,12 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .app-breadcrumb.el-breadcrumb {
-    display: inline-block;
-    font-size: 14px;
+    display    : inline-block;
+    font-size  : 14px;
     line-height: 50px;
     margin-left: 10px;
     .no-redirect {
-      color: #97a8be;
+      color : #97a8be;
       cursor: text;
     }
   }

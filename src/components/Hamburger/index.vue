@@ -14,14 +14,14 @@
 
 <script>
 export default {
-  name: 'hamburger',
+  name : 'hamburger',
   props: {
     isActive: {
-      type: Boolean,
+      type   : Boolean,
       default: false
     },
     toggleClick: {
-      type: Function,
+      type   : Function,
       default: null
     }
   }
@@ -30,12 +30,12 @@ export default {
 
 <style scoped>
 .hamburger {
-	display: inline-block;
-	cursor: pointer;
-	width: 20px;
-	height: 20px;
-	transform: rotate(90deg);
-	transition: .38s;
+	display         : inline-block;
+	cursor          : pointer;
+	width           : 20px;
+	height          : 20px;
+	transform       : rotate(90deg);
+	transition      : .38s;
 	transform-origin: 50% 50%;
 }
 .hamburger.is-active {

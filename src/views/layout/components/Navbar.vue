@@ -67,6 +67,9 @@ export default {
     top     : 16px;
     color   : red;
   }
+  .heard-ico {
+    display: inline-block;position: absolute;
+  }
   .avatar-container {
     height  : 50px;
     display : inline-block;

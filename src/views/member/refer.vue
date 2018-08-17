@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    我的推荐
+    <h3>我的推荐</h3>
     <el-table :data="list" v-loading="listLoading" element-loading-text="Loading" border fit highlight-current-row>
       <el-table-column align="center" label='序号' width="95">
         <template slot-scope="scope">
@@ -14,7 +14,7 @@
       </el-table-column>
       <el-table-column class-name="status-col" label="状态" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.st | statusFilter">{{scope.row.st | statusFilter}}</el-tag>
+          <el-tag :type="scope.row.st | statusFilter">{{scope.row.st | stFilter}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column align="center" prop="created_at" label="注册时间" width="200">
@@ -35,7 +35,7 @@
 
 <script>
 import { getList } from '@/api/table'
-
+import { statusFilter,stFilter } from '@/api/config'
 export default {
   data() {
     return {
@@ -44,14 +44,8 @@ export default {
     }
   },
   filters: {
-    statusFilter(status) {
-      const statusMap = {
-        0: 'success',
-        1: 'gray',
-        2: 'danger'
-      }
-      return statusMap[status]
-    }
+    statusFilter,
+    stFilter
   },
   created() {
     this.fetchData()

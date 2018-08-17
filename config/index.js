@@ -9,21 +9,21 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
+    assetsPublicPath  : '/',
+    proxyTable        : {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 9528, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host           : 'localhost',   // can be overwritten by process.env.HOST
+    port           : 9528,          // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
-    errorOverlay: true,
-    notifyOnErrors: false,
-    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+    errorOverlay   : true,
+    notifyOnErrors : false,
+    poll           : false,         // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
@@ -53,17 +53,17 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot        : path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
 
     /**
      * You can set by youself according to actual condition
      * You will need to set this if you plan to deploy your site under a sub path,
-     * for example GitHub pages. If you plan to deploy your site to https://foo.github.io/bar/,
+     * for example GitHub pages. If you plan to deploy your site to https:   //foo.github.io/bar/,
      * then assetsPublicPath should be set to "/bar/".
      * In most cases please use '/' !!!
      */
-    assetsPublicPath: '/vueAdmin-template/', // If you are deployed on the root path, please use '/'
+    assetsPublicPath: '/vue-profile/',   // If you are deployed on the root path, please use '/'
 
     /**
      * Source Maps
@@ -77,7 +77,7 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip          : false,
     productionGzipExtensions: ['js', 'css'],
 
     // Run the build command with an extra argument to
