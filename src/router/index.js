@@ -57,9 +57,9 @@ export const constantRouterMap = [
         meta     : { title: '个人资料', icon: 'icon-businesscard' }
       },
       {
-        path     : 'tree',
+        path     : 'oauth',
         name     : '帐号关联',
-        component: () => import('@/views/tree/index'),
+        component: () => import('@/views/member/oauth'),
         meta     : { title: '帐号关联', icon: 'icon-addressbook' }
       },
       {

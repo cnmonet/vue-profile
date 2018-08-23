@@ -9,7 +9,7 @@
       </el-table-column>
       <el-table-column label="用户名">
         <template slot-scope="scope">
-          {{scope.row.name}}
+          <user :data="scope.row"></user>
         </template>
       </el-table-column>
       <el-table-column class-name="status-col" label="状态" width="110" align="center">
@@ -34,9 +34,13 @@
 </template>
 
 <script>
-import { getList } from '@/api/table'
+import request from '@/utils/request'
 import { statusFilter,stFilter } from '@/api/config'
+import User from '@/components/Popover/user.vue'
 export default {
+  components: {
+    User
+  },
   data() {
     return {
       list       : null,
@@ -53,8 +57,8 @@ export default {
   methods: {
     fetchData() {
       this.listLoading = true
-      getList(this.listQuery).then(response => {
-        this.list        = response.data.items
+      request({url: '/member/refer',method: 'get'}).then(response => {
+        this.list        = response.data
         this.listLoading = false
       })
     }

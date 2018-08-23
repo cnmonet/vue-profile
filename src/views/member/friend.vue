@@ -3,7 +3,7 @@
     <el-input placeholder="请输入关键字" v-model="filterText" style="margin-bottom:30px;"></el-input>
 
     <el-table :data="list" v-loading="listLoading" element-loading-text="Loading" border fit highlight-current-row>
-      <el-table-column align="center" label='序号' width="95">
+      <el-table-column align="center" label='' width="95">
         <template slot-scope="scope">
           {{scope.$index}}
         </template>
@@ -11,7 +11,7 @@
     
       <el-table-column label="好友">
         <template slot-scope="scope">
-          {{scope.row.to_id | userFilter}}
+          <user :data="scope.row.to"></user>
         </template>
       </el-table-column>
       
@@ -27,7 +27,11 @@
 
 <script>
 import request from '@/utils/request'
+import User from '@/components/Popover/user.vue'
 export default {
+  components: {
+    User
+  },
   created() {
     this.fetchData()
   },

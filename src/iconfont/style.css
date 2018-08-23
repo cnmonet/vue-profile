@@ -1,0 +1,79 @@
+/*左对齐*/
+.left {
+  text-align: left;
+}
+/*右对齐*/
+.right {
+  text-align: right;
+}
+/*居中对齐*/
+.center {
+  text-align: center;
+}
+/*两端对齐*/
+.justify {
+  text-align: justify;
+}
+
+
+.text-monospace {font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+.text-justify {text-align: justify !important;}
+.text-nowrap {white-space: nowrap !important;}
+.text-truncate {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.text-left {text-align: left !important;}
+.text-right {text-align: right !important;}
+.text-center {text-align: center !important;}
+
+
+.float-left {float: left !important;}
+.float-right {float: right !important;}
+.float-none {float: none !important;}
+
+
+
+
+.img-fluid {
+  max-width: 100%;
+  height   : auto;
+}
+
+.img-thumbnail {
+  padding         : 0.25rem;
+  background-color: #fff;
+  border          : 1px solid #dee2e6;
+  border-radius   : 0.25rem;
+  max-width       : 100%;
+  height          : auto;
+}
+
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+.rounded-top {
+  border-top-left-radius : 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
+}
+
+.rounded-right {
+  border-top-right-radius   : 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
+}
+
+.rounded-bottom {
+  border-bottom-right-radius: 0.25rem !important;
+  border-bottom-left-radius : 0.25rem !important;
+}
+
+.rounded-left {
+  border-top-left-radius   : 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}

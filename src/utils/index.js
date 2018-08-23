@@ -12,7 +12,7 @@ export function parseTime(time, cFormat) {
     date = time
   } else {
     if (('' + time).length === 10) time = parseInt(time) * 1000
-    date = new Date(time)
+       date                             = new Date(time)
   }
   const formatObj = {
     y: date.getFullYear(),
@@ -35,8 +35,8 @@ export function parseTime(time, cFormat) {
 }
 
 export function formatTime(time, option) {
-  time = +time * 1000
-  const d = new Date(time)
+  //time = +time * 1000
+  const d   = new Date(time)
   const now = Date.now()
 
   const diff = (now - d) / 1000

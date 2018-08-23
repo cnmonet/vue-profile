@@ -3,10 +3,12 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
-    token: getToken(),
-    name: '',
-    avatar: '',
-    roles: []
+    token   : getToken(),
+    name    : '',
+    avatar  : '',
+    roles   : [],
+    info    : [],
+    userdata: [],
   },
 
   mutations: {
@@ -21,6 +23,10 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_INFO: (state, data) => {
+      state.info     = data.info
+      state.userdata = data
     }
   },
 
@@ -48,10 +54,11 @@ const user = {
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
           } else {
-            reject('getInfo: roles must be a non-null array !')
+            reject('对不起，暂时还不能为您提供服务！')
           }
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
+          commit('SET_INFO', data)
           resolve(response)
         }).catch(error => {
           reject(error)
@@ -59,7 +66,7 @@ const user = {
       })
     },
 
-    // 登出
+    // 退出
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
@@ -73,7 +80,7 @@ const user = {
       })
     },
 
-    // 前端 登出
+    // 前端 退出
     FedLogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
