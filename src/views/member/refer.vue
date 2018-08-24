@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <h3>我的推荐</h3>
+    <h3>我推荐的用户</h3>
     <el-table :data="list" v-loading="listLoading" element-loading-text="Loading" border fit highlight-current-row>
       <el-table-column align="center" label='序号' width="95">
         <template slot-scope="scope">

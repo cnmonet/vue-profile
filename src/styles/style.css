@@ -77,3 +77,6 @@
 .rounded-0 {
   border-radius: 0 !important;
 }
+.el-scrollbar {
+  height: 100%;
+}

@@ -137,10 +137,78 @@ export const constantRouterMap = [
       }
     ]
   },
-
-  { path: '*', redirect: '/404', hidden: true }
+  {
+    path     : '/seller',
+    component: Layout,
+    redirect : '/seller/apply',
+    name     : '商户中心',
+    meta     : {title: '商户中心',icon : 'icon-maichu'},
+    children : [
+      {
+        path     : 'apply',
+        component: () => import('@/views/seller/apply'),                            // Parent router-view
+        name     : 'apply',
+        meta     : { title: '申请商户', icon: 'icon-maijia2' ,noroles:['store_admin']}
+      },
+      {
+        path     : 'test0',
+        component: () => import('@/views/seller/test0'),                                       // Parent router-view
+        name     : 'test0',
+        meta     : { title: '商品管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test1',
+        component: () => import('@/views/seller/test1'),                                       // Parent router-view
+        name     : 'test1',
+        meta     : { title: '订单管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test2',
+        component: () => import('@/views/seller/test2'),                                       // Parent router-view
+        name     : 'test2',
+        meta     : { title: '分类管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test3',
+        component: () => import('@/views/seller/test3'),
+        name     : 'test3',
+        meta     : { title: '商品搭配', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test4',
+        component: () => import('@/views/seller/test4'),
+        name     : 'test4',
+        meta     : { title: '配送方式', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test5',
+        component: () => import('@/views/seller/test5'),
+        name     : 'test5',
+        meta     : { title: '退款管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test6',
+        component: () => import('@/views/seller/test6'),
+        name     : 'test6',
+        meta     : { title: '广告管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test7',
+        component: () => import('@/views/seller/test7'),
+        name     : 'test7',
+        meta     : { title: '优惠卷管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+      {
+        path     : 'test8',
+        component: () => import('@/views/seller/test8'),
+        name     : 'test8',
+        meta     : { title: '咨询管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
+      },
+    ]
+  },  
+  //{ path: '*', redirect: '/404', hidden: true }
 ]
-
+export const Router404 = { path: '*', redirect: '/404', hidden: true }
 export default new Router({
   // mode: 'history', //后端支持可开
   scrollBehavior: () => ({ y: 0 }),

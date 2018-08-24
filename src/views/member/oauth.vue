@@ -1,7 +1,6 @@
 <template>
   <div class="app-container">
-    <el-input placeholder="请输入关键字" v-model="filterText" style="margin-bottom:30px;"></el-input>
-
+    <h3>我的关联账号</h3>
     <el-table :data="list" v-loading="listLoading" element-loading-text="Loading" border fit highlight-current-row>
       <el-table-column align="center" label='' width="95">
         <template slot-scope="scope">
@@ -41,7 +40,7 @@ export default {
   methods: {
     fetchData() {
       this.listLoading = true
-      request({url: '/member/oauth',method: 'get',params: this.filterText}).then(response => {
+      request({url: '/member/oauth',method: 'get'}).then(response => {
         this.list        = response.data
         this.listLoading = false
       })

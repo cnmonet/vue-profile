@@ -1,8 +1,7 @@
 <template>
 <div class="app-container">
     <h3>
-        欢迎您，{{name}} 会员等级: <span v-for='role in roles' :key='role'>{{role}}</span><br>
-会员成长值：0 </h3>
+        欢迎您，{{name}} </h3>
     <el-row>
       <el-col :md="6" v-for="(item, index) in items" :key="index" class="item-card"><el-card class="center">
         <h1><i :class="item.ico">{{ money[index] }}</i></h1><br>

@@ -2,17 +2,13 @@
   <div class="app-container">
     
     <el-tabs type="card">
-  <el-tab-pane label="商品收藏">
+  <el-tab-pane label="收藏商品">
     <el-table :data="list" v-loading="listLoading" element-loading-text="Loading" border fit highlight-current-row>
-      <el-table-column align="center" label='序号' width="95">
-        <template slot-scope="scope">
-          {{scope.$index}}
-        </template>
-      </el-table-column>
+      
     
       <el-table-column label="商品">
         <template slot-scope="scope">
-          {{scope.row.item_id | goodsFilter}}
+          <goods :data="scope.row.goods"></goods>
         </template>
       </el-table-column>
       
@@ -23,18 +19,14 @@
         </template>
       </el-table-column>
     </el-table></el-tab-pane>
-  <el-tab-pane label="店铺收藏">
+  <el-tab-pane label="收藏店铺">
     
     <el-table :data="list2" v-loading="listLoading2" element-loading-text="Loading" border fit highlight-current-row>
-      <el-table-column align="center" label='序号' width="95">
-        <template slot-scope="scope">
-          {{scope.$index}}
-        </template>
-      </el-table-column>
+      
     
       <el-table-column label="店铺">
         <template slot-scope="scope">
-          {{scope.row.item_id | storeFilter}}
+          <store :data="scope.row.store"></store>
         </template>
       </el-table-column>
       
@@ -51,7 +43,12 @@
 
 <script>
 import request from '@/utils/request'
+import Store from '@/components/Popover/store.vue'
+import Goods from '@/components/Popover/goods.vue'
 export default {
+  components: {
+    Goods,Store
+  },
   created() {
     this.fetchData()
   },
@@ -60,11 +57,11 @@ export default {
       this.listLoading  = true
       this.listLoading2 = true
       request({url: '/member/favorite',method: 'get'}).then(response => {
-        this.list        = response.data.items
+        this.list        = response.data
         this.listLoading = false
       })
       request({url: '/member/favorite?type=store',method: 'get'}).then(response => {
-        this.list2        = response.data.items
+        this.list2        = response.data
         this.listLoading2 = false
       })
     }
