@@ -9,7 +9,7 @@
   <el-col :sm="3" class="hidden-xs-only">数量</el-col>
   <el-col :sm="6" class="hidden-xs-only">商品操作</el-col>
 </el-row>
-<div v-for="(item, index) in list" :key="index">
+<div v-for="(item, index) in (data && data.data)" :key="index">
 <el-row class="table-head-mod">
   <el-col :span="4" style="text-align:left;"><div v-if="item.store">{{item.store.title}}</div><div v-else-if="item.store_id==0">系统商城</div><div v-else>其它商城</div></el-col>
   <el-col :span="12">订单号：{{item.order_sn}}  下单时间：{{item.created_at}}</el-col>
@@ -19,7 +19,7 @@
 <div v-if="item.goods.length>0">
 <el-row v-for="(item1, index1) in item.goods" :key="index1" class="goods_row">
   <el-col :sm="12" :xs="18" class="goods_item">
-    <a :href="'/goods?id='+item1.id" target="_blank"><img :src="item1.goods_image" width="80" height="80"></a>
+    <a :href="'/goods?id='+item1.id" target="_blank"><img :src="goods_img_path + item1.goods_image" width="80" height="80"></a>
     <a :href="'/goods?id='+item1.id" target="_blank">{{item1.title}}</a>
   </el-col>
   <el-col :sm="3" :xs="6">{{item1.price}}</el-col>
@@ -53,17 +53,19 @@ export default {
     fetchData() {
       this.listLoading = true
       request({ url:'/buyer/order', method:'get', params:this.filterText }).then(response => {
-        this.list        = response.data.data
-        this.listLoading = false
+        this.data           = response.data
+        this.goods_img_path = response.goods_img_path
+        this.listLoading    = false
       })
     }
   },
 
   data() {
     return {
-      list       : null,
-      listLoading: true,
-      filterText : '',
+      data          : null,
+      goods_img_path: 'http://zmall.laravel/upload/',
+      listLoading   : true,
+      filterText    : '',
     }
   }
 }

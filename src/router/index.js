@@ -89,8 +89,15 @@ export const constantRouterMap = [
     ]
   },
 
-  
+]
 
+
+
+
+
+
+
+export const asyncRouterMap = [
   {
     path     : '/buyer',
     component: Layout,
@@ -151,64 +158,66 @@ export const constantRouterMap = [
         meta     : { title: '申请商户', icon: 'icon-maijia2' ,noroles:['store_admin']}
       },
       {
-        path     : 'test0',
-        component: () => import('@/views/seller/test0'),                                       // Parent router-view
-        name     : 'test0',
+        path     : 'goods',
+        component: () => import('@/views/seller/goods'),                                       // Parent router-view
+        name     : 'goods',
         meta     : { title: '商品管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test1',
-        component: () => import('@/views/seller/test1'),                                       // Parent router-view
-        name     : 'test1',
+        path     : 'order',
+        component: () => import('@/views/seller/order'),                                       // Parent router-view
+        name     : 'order',
         meta     : { title: '订单管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test2',
-        component: () => import('@/views/seller/test2'),                                       // Parent router-view
-        name     : 'test2',
+        path     : 'category',
+        component: () => import('@/views/seller/category'),                                    // Parent router-view
+        name     : 'category',
         meta     : { title: '分类管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test3',
-        component: () => import('@/views/seller/test3'),
-        name     : 'test3',
+        path     : 'mix',
+        component: () => import('@/views/seller/mix'),
+        name     : 'mix',
         meta     : { title: '商品搭配', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test4',
-        component: () => import('@/views/seller/test4'),
-        name     : 'test4',
+        path     : 'shipping',
+        component: () => import('@/views/seller/shipping'),
+        name     : 'shipping',
         meta     : { title: '配送方式', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test5',
-        component: () => import('@/views/seller/test5'),
-        name     : 'test5',
+        path     : 'discus',
+        component: () => import('@/views/seller/discus'),
+        name     : 'discus',
         meta     : { title: '退款管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test6',
-        component: () => import('@/views/seller/test6'),
-        name     : 'test6',
+        path     : 'advert',
+        component: () => import('@/views/seller/advert'),
+        name     : 'advert',
         meta     : { title: '广告管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test7',
-        component: () => import('@/views/seller/test7'),
-        name     : 'test7',
+        path     : 'coupon',
+        component: () => import('@/views/seller/coupon'),
+        name     : 'coupon',
         meta     : { title: '优惠卷管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
       {
-        path     : 'test8',
-        component: () => import('@/views/seller/test8'),
-        name     : 'test8',
+        path     : 'question',
+        component: () => import('@/views/seller/question'),
+        name     : 'question',
         meta     : { title: '咨询管理', icon: 'icon-maijia2' ,roles:['store_admin','store_work']}
       },
     ]
   },  
-  //{ path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true }
 ]
-export const Router404 = { path: '*', redirect: '/404', hidden: true }
+
+
+
 export default new Router({
   // mode: 'history', //后端支持可开
   scrollBehavior: () => ({ y: 0 }),

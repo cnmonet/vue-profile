@@ -27,6 +27,18 @@ export const oauthMap = {
     6: 'E-mail',
     7: '手机'
 }
+export const goodsSt = {
+    0: '未知',
+    1: '上架的',
+    2: '下架的',
+    3: '禁售的',
+}
+export const goodsMap = {
+    0: '未知',
+    1: '显示',
+    2: '推荐',
+    3: '促销',
+}
 export function oauthFilter(params) {//状态取出
     params = Number(params)
     return oauthMap[params]
